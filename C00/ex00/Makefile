@@ -4,8 +4,6 @@ CFLAGS = -Wall -Wextra -Werror -ggdb -std=c++98
 
 SRCS = megaphone.cpp \
 
-HEADER = megaphone.hpp
-
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)

@@ -1,5 +1,8 @@
 
-#include "megaphone.hpp"
+#include <cctype>
+#include <iostream>
+#include <cstring>
+
 
 int	main(int argc, char **argv)
 {
