@@ -48,8 +48,8 @@ bool	is_only_number(std::string telephone) {
 
 
 
-std:string	get_first_name(void) const;
-std:string	get_last_name(void) const;
-std:string	get_nickname(void) const;
-std:string	get_telephone(void) const;
-std:string	get_darkest_secret(void) const;
+std::string	get_first_name(void) const;
+std::string	get_last_name(void) const;
+std::string	get_nickname(void) const;
+std::string	get_telephone(void) const;
+std::string	get_darkest_secret(void) const;
