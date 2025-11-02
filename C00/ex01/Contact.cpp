@@ -21,7 +21,7 @@ void	add_nickname(std::string nickname) {
 
 void	add_telephone(std::string telephone) {
 
-	std::cout << "Telephone (only numbers): ";
+	std::cout << "Telephone (only digits): ";
 	getline(std::cin, telephone);
 	if (!is_only_number(telephone))
 	{
