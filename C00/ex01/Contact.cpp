@@ -24,6 +24,10 @@ void	add_telephone(std::string telephone) {
 	std::cout << "Telephone (only numbers): ";
 	getline(std::cin, telephone);
 	if (!is_only_number(telephone))
+	{
+		std::cout << "Telephone needs to be only digits" << std::endl;
+		add_telephone(telephone);
+	}
 }
 
 void	add_darkest_secret(std::string darkest_secret) {
@@ -34,8 +38,12 @@ void	add_darkest_secret(std::string darkest_secret) {
 
 bool	is_only_number(std::string telephone) {
 
-	for (int i = 0; i < strlen((const char *)telephone); i++)
-
+	for (int i = 0; i < strlen(telephone.c_str()); i++)
+	{
+		if (!isdigit(telephone.c_str()[i]))
+			return (false);
+	}
+	return (true);
 }
 
 
