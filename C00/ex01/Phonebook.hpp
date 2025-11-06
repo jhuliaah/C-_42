@@ -27,6 +27,7 @@ class	Phonebook{
 
 	void					search_contact(void);
 	void					add_contact(void);
+	void					displayCompactContent(int index) const;
 };
 
 #endif
