@@ -1,4 +1,4 @@
-NAME = megaphone
+NAME = Phonebook
 CC = g++
 CFLAGS = -Wall -Wextra -Werror -ggdb -std=c++98
 

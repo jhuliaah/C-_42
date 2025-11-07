@@ -2,7 +2,6 @@
 #include "Phonebook.hpp"
 
 Phonebook::Phonebook(void)
-: number_of_contacts(0), _oldIndex(0)
 {
 	std::cout << "Phonebook Created" << std:: endl;
 	return;
@@ -30,7 +29,7 @@ void Phonebook::add_contact(void)
 		std::cout << "Phonebook is full! If new contact is added, old one will be replaced" << std::endl;
 }
 
-void PhoneBook::displayHeader() const
+void Phonebook::displayHeader() const
 {
 	std::cout << std::setw(10) << std::right << "Index" << "|";
 	std::cout << std::setw(10) << std::right << "First Name" << "|";
@@ -39,7 +38,7 @@ void PhoneBook::displayHeader() const
 }
 
 
-void PhoneBook::displayCompactContent(int index) const
+void Phonebook::displayCompactContent(int index) const
 {
 	std::cout << std::setw(10) << std::right << (index + 1) << "|";
 	std::cout << std::setw(10) << std::right << truncateValue(Contacts[index].get_first_name()) << "|";
@@ -47,7 +46,7 @@ void PhoneBook::displayCompactContent(int index) const
 	std::cout << std::setw(10) << std::right << truncateValue(Contacts[index].get_nickname()) << "|" << std::endl;
 }
 
-std::string PhoneBook::truncateValue(const std::string& s) const
+std::string Phonebook::truncateValue(const std::string& s) const
 {
 	if (s.length() <= 10) return s;
 	return s.substr(0, 9) + ".";
@@ -103,3 +102,4 @@ void PhoneBook::displayCompactContent(int index) const
 	std::cout << std::setw(10) << std::right << truncateValue(_contacts[index].getLastName()) << "|";
 	std::cout << std::setw(10) << std::right << truncateValue(_contacts[index].getNickname()) << "|" << std::endl;
 }
+

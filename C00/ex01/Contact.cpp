@@ -1,13 +1,15 @@
 
 #include "Contact.hpp"
 
+bool	is_only_number(std::string telephone);
+
 void	add_first_name(std::string first_name) {
 
 	std::cout << "First name: ";
 	getline(std::cin, first_name);
 	if (first_name.empty()){
 		std::cout << "Field can't be blank." << std::endl;
-		first_name(first_name);
+		add_first_name(first_name);
 	}
 }
 
@@ -59,7 +61,7 @@ void	add_darkest_secret(std::string darkest_secret) {
 
 bool	is_only_number(std::string telephone) {
 
-	for (int i = 0; i < strlen(telephone.c_str()); i++)
+	for (size_t i = 0; i < strlen(telephone.c_str()); i++)
 	{
 		if (!isdigit(telephone.c_str()[i]))
 			return (false);
@@ -83,7 +85,7 @@ std::string	Contact_Class::get_nickname(void) const
 	return (this->nickname);
 }
 
-std::string	Contact_Class::get_telephoner(void) const
+std::string	Contact_Class::get_telephone(void) const
 {
 	return (this->telephone);
 }
@@ -93,10 +95,10 @@ std::string	Contact_Class::get_darkest_secret(void) const
 	return (this->darkest_secret);
 }
 
-Contact_Class::Contact(void){
+Contact_Class::Contact_Class(void){
 	return;
 }
 
-Contact_Class::~Contact(void){
+Contact_Class::~Contact_Class(void) {
 	return;
 }

@@ -22,8 +22,8 @@ class	Contact_Class {
 	
 	public:
 	
-	Contact(void);
-	~Contact(void);
+	Contact_Class(void);
+	~Contact_Class(void);
 	
 	bool	is_only_number(std::string telephone);
 	void	add_first_name(std::string first_name);

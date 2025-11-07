@@ -22,8 +22,8 @@ class	Phonebook{
 	void					display_header(void);
 
 	public:
-	phonebook(void);
-	~phonebook(void);
+	Phonebook(void);
+	~Phonebook(void);
 
 	void					search_contact(void);
 	void					add_contact(void);
