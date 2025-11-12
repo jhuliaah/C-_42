@@ -3,72 +3,89 @@
 
 bool	is_only_number(std::string telephone);
 
-void	add_first_name(std::string first_name) {
-
+void	Contact_Class::add_first_name(void) {
+	std::string input;
 	std::cout << "First name: ";
-	getline(std::cin, first_name);
-	if (first_name.empty()){
+	getline(std::cin, input);
+	if (input.empty()){
 		std::cout << "Field can't be blank." << std::endl;
-		add_first_name(first_name);
+		add_first_name();
+	} else {
+		this->first_name = input;
 	}
 }
 
-void	add_last_name(std::string last_name) {
+void	Contact_Class::add_last_name(void) {
 
-	std::cout << "First name: ";
-	getline(std::cin, last_name);
-	if (last_name.empty()){
+	std::string input;
+	std::cout << "Last name: ";
+	getline(std::cin, input);
+	if (input.empty()){
 		std::cout << "Field can't be blank." << std::endl;
-		add_last_name(last_name);
+		add_last_name();
+	} else {
+		this->last_name = input;
 	}
 
 }
 
-void	add_nickname(std::string nickname) {
+void	Contact_Class::add_nickname(void) {
 
+	std::string input;
 	std::cout << "Nickname: ";
-	getline(std::cin, nickname);
-	if (nickname.empty()) {
+	getline(std::cin, input);
+	if (input.empty()) {
 		std::cout << "Field can't be blank." << std::endl;
-		add_nickname(nickname);
+		add_nickname();
+	} else {
+		this->last_name = input;
 	}
 }
 
-void	add_telephone(std::string telephone) {
+void	Contact_Class::add_telephone(void) {
 
+	std::string input;
 	std::cout << "Telephone (only digits): ";
-	getline(std::cin, telephone);
-	if (!is_only_number(telephone))
+	getline(std::cin, input);
+	if (input.empty())
+	{
+		std::cout << "Field can't be blank." << std::endl;
+		add_telephone();
+	}	
+	else if (!is_only_number(input))
 	{
 		std::cout << "Telephone needs to be only digits" << std::endl;
-		add_telephone(telephone);
+		add_telephone();
 	}
-	else if (telephone.empty()) {
-		std::cout << "Field can't be blank." << std::endl;
-		add_telephone(telephone);
-	}
-}
-
-void	add_darkest_secret(std::string darkest_secret) {
-
-	std::cout << "Give me your darkest secret: ";
-	getline(std::cin, darkest_secret);
-	if (darkest_secret.empty()) {
-		std::cout << "Field can't be blank." << std::endl;
-		add_darkest_secret(darkest_secret);
-	}
-}
-
-bool	is_only_number(std::string telephone) {
-
-	for (size_t i = 0; i < strlen(telephone.c_str()); i++)
+	else
 	{
-		if (!isdigit(telephone.c_str()[i]))
+		this->telephone = input;
+	}
+}
+
+void	Contact_Class::add_darkest_secret(void) {
+
+	std::string input;
+	std::cout << "Give me your darkest secret: ";
+	getline(std::cin, input);
+	if (input.empty()) {
+		std::cout << "Field can't be blank." << std::endl;
+		add_darkest_secret();
+	}
+	else
+		this->darkest_secret = input;
+}
+
+bool	Contact_Class::is_only_number(std::string telephone) {
+	if (telephone.empty())
+		return (false); 
+	for (std::string::size_type i = 0; i < telephone.length(); ++i)
+	{
+		if (!std::isdigit(static_cast<unsigned char>(telephone[i])))
 			return (false);
 	}
 	return (true);
 }
-
 
 std::string Contact_Class::get_first_name(void) const
 {

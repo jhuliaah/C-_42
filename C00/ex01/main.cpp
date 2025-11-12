@@ -4,7 +4,6 @@
 
 int	main(void)
 {
-	Contact_Class Contact;
 	Phonebook phoneBook;
 
 	while (true)
@@ -13,9 +12,9 @@ int	main(void)
 		std::cout << "Please insert 'ADD', 'SEARCH' or 'EXIT': ";
 		std::getline(std::cin, command);
 		if (command == "ADD")
-			PhoneBook.addContact();
+			phoneBook.add_contact();
 		else if (command == "SEARCH")
-			PhoneBook.searchContact();
+			phoneBook.search_contact();
 		else if (command == "EXIT")
 			break;
 		else

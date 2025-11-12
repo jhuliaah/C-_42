@@ -2,17 +2,18 @@
 #ifndef CONTACT_HPP
 #define CONTACT_HPP
 
+#include <cstddef>
 #include <iostream>
 #include <cctype>
 #include <iomanip>
 #include <cstring>
 #include <limits>
+#include <string>
 
 class	Contact_Class {
 
 	private:
 
-	int	id;
 	std::string	first_name;
 	std::string	last_name;
 	std::string	nickname;
@@ -23,14 +24,14 @@ class	Contact_Class {
 	public:
 	
 	Contact_Class(void);
-	~Contact_Class(void);
+	~Contact_Class();
 	
 	bool	is_only_number(std::string telephone);
-	void	add_first_name(std::string first_name);
-	void	add_last_name(std::string last_name);
-	void	add_nickname(std::string nickname);
-	void	add_telephone(std::string telephone);
-	void	add_darkest_secret(std::string darkest_secret);
+	void	add_first_name(void);
+	void	add_last_name(void);
+	void	add_nickname(void);
+	void	add_telephone(void);
+	void	add_darkest_secret(void);
 
 	std::string	get_first_name(void) const;
 	std::string	get_last_name(void) const;

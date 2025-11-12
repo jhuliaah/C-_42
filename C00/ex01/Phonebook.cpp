@@ -1,10 +1,10 @@
 
 #include "Phonebook.hpp"
 
-Phonebook::Phonebook(void)
+
+Phonebook::Phonebook(void) : number_of_contacts(0)
 {
 	std::cout << "Phonebook Created" << std:: endl;
-	return;
 }
 
 Phonebook::~Phonebook(void)
@@ -12,24 +12,24 @@ Phonebook::~Phonebook(void)
 	std::cout << "Phonebook Destroyed" << std:: endl;
 	return;
 }
-
 void Phonebook::add_contact(void)
 {
 	Contact_Class temp;
 
-	temp.add_first_name(temp.first_name);
-	temp.add_last_name(temp.last_name);
-	temp.add_nickname(temp.nickname);
-	temp.add_telephone(temp.telephone);
-	temp.add_darkest_secret(temp.darkest_secret);
+	temp.add_first_name();
+	temp.add_last_name();
+	temp.add_nickname();
+	temp.add_telephone();
+	temp.add_darkest_secret();
 	
-	Contacts[number_of_contacts++ % 8] = temp;
+	Contacts[number_of_contacts % 8] = temp;
+	number_of_contacts++;
 	std::cout << "Contact added successfully!" << std::endl;
-	if ((number_of_contacts % 8 )== 8)
+	if (number_of_contacts >= 8)
 		std::cout << "Phonebook is full! If new contact is added, old one will be replaced" << std::endl;
 }
 
-void Phonebook::displayHeader() const
+void Phonebook::display_header() const
 {
 	std::cout << std::setw(10) << std::right << "Index" << "|";
 	std::cout << std::setw(10) << std::right << "First Name" << "|";
@@ -37,30 +37,24 @@ void Phonebook::displayHeader() const
 	std::cout << std::setw(10) << std::right << "Nickname" << "|" << std::endl;
 }
 
-
-void Phonebook::displayCompactContent(int index) const
+std::string Phonebook::truncate_string(const std::string& str) const
 {
-	std::cout << std::setw(10) << std::right << (index + 1) << "|";
-	std::cout << std::setw(10) << std::right << truncateValue(Contacts[index].get_first_name()) << "|";
-	std::cout << std::setw(10) << std::right << truncateValue(Contacts[index].get_last_name()) << "|";
-	std::cout << std::setw(10) << std::right << truncateValue(Contacts[index].get_nickname()) << "|" << std::endl;
+	if (str.length() <= 10) return str;
+	return str.substr(0, 9) + ".";
 }
 
-std::string Phonebook::truncateValue(const std::string& s) const
+void Phonebook::search_contact(void) const
 {
-	if (s.length() <= 10) return s;
-	return s.substr(0, 9) + ".";
-}
-
-void PhoneBook::search_contact(void) const
-{
-	if (number_of_contacts == 0)
+	if (this->number_of_contacts == 0)
 	{
 		std::cout << "Phonebook empty" << std:: endl;
 		return;
 	}
-	displayHeader();
-	for (int i = 0; i < number_of_contacts; ++i)
+	display_header();
+	int d = this->number_of_contacts;
+	if (d > 8)
+		d = 8;
+	for (int i = 0; i < 8; ++i)
 		displayCompactContent(i);
 	std::string index;
 	std::cout << "Enter index to view details: ";
@@ -81,12 +75,12 @@ void PhoneBook::search_contact(void) const
 		return;
 	}
 	n -= 1;
-	if (n < 0 || n >= number_of_contacts)
+	if (n < 0 || n >= d)
 	{
 		std::cout << "Index out of range" << std::endl;
 		return;
 	}
-	const Contact_Class& c = Contacts[n];
+	const Contact_Class& c = this->Contacts[n];
 	std::cout << "First Name: " << c.get_first_name() << std::endl;
 	std::cout << "Last Name: "  << c.get_last_name()  << std::endl;
 	std::cout << "Nickname: "   << c.get_nickname()  << std::endl;
@@ -95,11 +89,11 @@ void PhoneBook::search_contact(void) const
 
 }
 
-void PhoneBook::displayCompactContent(int index) const
+void Phonebook::displayCompactContent(int index) const
 {
 	std::cout << std::setw(10) << std::right << (index + 1) << "|";
-	std::cout << std::setw(10) << std::right << truncateValue(_contacts[index].getFirstName()) << "|";
-	std::cout << std::setw(10) << std::right << truncateValue(_contacts[index].getLastName()) << "|";
-	std::cout << std::setw(10) << std::right << truncateValue(_contacts[index].getNickname()) << "|" << std::endl;
+	std::cout << std::setw(10) << std::right << truncate_string(this->Contacts[index].get_first_name()) << "|";
+	std::cout << std::setw(10) << std::right << truncate_string(this->Contacts[index].get_last_name()) << "|";
+	std::cout << std::setw(10) << std::right << truncate_string(this->Contacts[index].get_nickname()) << "|" << std::endl;
 }
 
