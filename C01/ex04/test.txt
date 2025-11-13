@@ -1,0 +1,8 @@
+
+A velha guarda vigiava o guarda.
+Guarda o portão da guarda real.
+Ninguém guarda a guarda.
+Guarda
+
+s1	"guarda"	A string a ser procurada e substituída.
+s2	"soldado"	A string de substituição.
