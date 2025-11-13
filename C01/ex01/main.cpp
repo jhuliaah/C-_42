@@ -32,7 +32,7 @@ int	main(void)
 	else if (N > 1 && N > MAX_ZOMBIES)
 	{
 		std::cout << "Why so many Zombies?? do you wanna destroy everything??"
-		<< "The Max amount of Zombies is: " << MAX_ZOMBIES << "!!" << std::endl;
+		<< " The Max amount of Zombies is: " << MAX_ZOMBIES << "!!" << std::endl;
 	}
 	else if(N > 1 && N <= MAX_ZOMBIES)
 	{
