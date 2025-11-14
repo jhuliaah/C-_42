@@ -9,7 +9,7 @@ Fixed::Fixed(void) : _value(0)
 Fixed::Fixed(const Fixed &src)
 {
 	std::cout << "Copy Constructor called" << std::endl;
-	this->_value = src.value;
+	this->_value = src._value;
 }
 
 Fixed::~Fixed(void)
@@ -20,7 +20,7 @@ Fixed::~Fixed(void)
 Fixed &Fixed::operator=(const Fixed &src)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	this->_value = src.value;
+	this->_value = src._value;
 	return *this;
 }
 
