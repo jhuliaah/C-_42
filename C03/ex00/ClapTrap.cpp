@@ -2,7 +2,7 @@
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap()
-	: _name("Default"), _hitpoints(10), _energyPoints(10), _attaclDamage(0)
+	: _name("Default"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
 	std::cout << "Default constructor called" << std::endl;
 }
@@ -32,7 +32,7 @@ ClapTrap&ClapTrap::operator=(const ClapTrap &src)
 	return *this;
 }
 
-ClapTrap:~ClapTrap()
+ClapTrap::~ClapTrap()
 {
 	std::cout << "Destrcutor called for " << _name << std::endl;
 }
@@ -62,7 +62,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 	std::cout << "⚠️  ClapTrap " << _name << " takes " << amount << " points of damage!" << std::endl;
 }
 
-void ClapTrap::beReapired(unsigned int amount)
+void ClapTrap::beRepaired(unsigned int amount)
 {
 	if(_energyPoints == 0 || _hitPoints == 0)
 	{
