@@ -22,10 +22,8 @@ class Bureaucrat {
 	
 	//getters and setters
 	std::string get_name() const;
-	int get_grade();
+	int get_grade() const;
 	
-	void set_grade(int grade);
-
 	//functions
 	void incrementGrade();
 	void decrementGrade();
