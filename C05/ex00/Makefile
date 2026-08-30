@@ -1,13 +1,11 @@
 
-NAME	= polymorphism
+NAME	= Bureaucrat
 CC	= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98
 
-SRC	= ./main.cpp \
-	  ./Animal.cpp \
-	  ./Dog.cpp \
-	  ./Cat.cpp \
-	  ./Brain.cpp
+SRC	= main.cpp Bureaucrat.cpp
+HEADERS = Bureaucrat.hpp
+	  
 
 OBJ	= ${SRC:.cpp=.o}
 
@@ -16,7 +14,7 @@ all: ${NAME}
 ${NAME}: ${OBJ}
 	${CC} ${FLAGS} -o ${NAME} ${OBJ}
 
-%.o: %.cpp
+%.o: %.cpp ${HEADERS}
 	${CC} ${FLAGS} -c $< -o $@
 
 clean:
