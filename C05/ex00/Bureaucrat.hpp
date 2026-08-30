@@ -22,8 +22,7 @@ class Bureaucrat {
 	
 	//getters and setters
 	std::string get_name() const;
-	int& get_grade() const;
-	int get_grade_content();
+	int get_grade();
 	
 	void set_grade(int grade);
 
@@ -43,6 +42,5 @@ class Bureaucrat {
 };
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &obj);
-
 
 #endif
