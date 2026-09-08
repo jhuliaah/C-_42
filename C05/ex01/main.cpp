@@ -1,5 +1,6 @@
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 #include <iostream>
 
 void testValidBureaucrat() {
@@ -90,6 +91,47 @@ void testUnderflowDecrement() {
     }
 }
 
+void testFormCreation() {
+    std::cout << "\n=== TESTE 7: Criação de Form (válido e inválido) ===" << std::endl;
+    try {
+        Form valido("Formulario Valido", 50, 100);
+        std::cout << valido << std::endl;
+    }
+    catch (const std::exception &e) {
+        std::cout << "Exceção inesperada: " << e.what() << std::endl;
+    }
+
+    try {
+        Form invalido("Formulario Invalido", 0, 100);
+        std::cout << invalido << std::endl; // Não deve chegar aqui
+    }
+    catch (const std::exception &e) {
+        std::cout << "Exceção Capturada com sucesso: " << e.what() << std::endl;
+    }
+}
+
+void testSignFormSuccess() {
+    std::cout << "\n=== TESTE 8: Assinar Form com sucesso ===" << std::endl;
+    Bureaucrat chefe("Chefe", 10);
+    Form form("Formulario", 50, 100);
+
+    std::cout << chefe << std::endl;
+    std::cout << form << std::endl;
+    chefe.signForm(form);
+    std::cout << form << std::endl;
+}
+
+void testSignFormFailure() {
+    std::cout << "\n=== TESTE 9: Assinar Form sem grade suficiente ===" << std::endl;
+    Bureaucrat estagiario("Estagiario", 150);
+    Form form("Formulario", 50, 100);
+
+    std::cout << estagiario << std::endl;
+    std::cout << form << std::endl;
+    estagiario.signForm(form);
+    std::cout << form << std::endl;
+}
+
 int main() {
     testValidBureaucrat();
     testCopyAndAssignment();
@@ -97,6 +139,9 @@ int main() {
     testGradeTooLowOnCreation();
     testOverflowIncrement();
     testUnderflowDecrement();
+    testFormCreation();
+    testSignFormSuccess();
+    testSignFormFailure();
 
     return 0;
 }

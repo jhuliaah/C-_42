@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 
-class Form;
+class AForm;
 
 #define MAX_GRADE 1
 #define MIN_GRADE 150
@@ -41,7 +41,8 @@ class Bureaucrat {
 	};
 
 	//Forms
-	void signForm(Form &_form);
+	void signForm(AForm &_form);
+	void executeForm(AForm const &form) const;
 
 };
 
