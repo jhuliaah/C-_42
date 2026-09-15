@@ -7,12 +7,12 @@
 #include <ctime>
 
 void testMakeValidForms() {
-    std::cout << "\n=== TESTE 1: Intern cria os 3 formulários válidos ===" << std::endl;
+    std::cout << "\n=== TEST 1: Intern creates the 3 valid forms ===" << std::endl;
     Intern someRandomIntern;
     Bureaucrat chefe("Chefe", 1);
 
     AForm *forms[3];
-    forms[0] = someRandomIntern.makeForm("shrubbery creation", "casa");
+    forms[0] = someRandomIntern.makeForm("shrubbery creation", "house");
     forms[1] = someRandomIntern.makeForm("robotomy request", "Bender");
     forms[2] = someRandomIntern.makeForm("presidential pardon", "Arthur Dent");
 
@@ -26,12 +26,12 @@ void testMakeValidForms() {
 }
 
 void testMakeUnknownForm() {
-    std::cout << "\n=== TESTE 2: Intern tenta criar formulário inexistente ===" << std::endl;
+    std::cout << "\n=== TEST 2: Intern tries to create a nonexistent form ===" << std::endl;
     Intern someRandomIntern;
 
-    AForm *form = someRandomIntern.makeForm("pedido de robotomia", "Bender");
+    AForm *form = someRandomIntern.makeForm("robotomy request pt", "Bender");
     if (!form)
-        std::cout << "form é NULL, como esperado." << std::endl;
+        std::cout << "form is NULL, as expected." << std::endl;
 }
 
 int main() {

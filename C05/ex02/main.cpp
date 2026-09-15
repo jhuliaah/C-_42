@@ -8,9 +8,9 @@
 #include <ctime>
 
 void testShrubbery() {
-    std::cout << "\n=== TESTE 1: ShrubberyCreationForm ===" << std::endl;
+    std::cout << "\n=== TEST 1: ShrubberyCreationForm ===" << std::endl;
     Bureaucrat chefe("Chefe", 1);
-    ShrubberyCreationForm form("casa");
+    ShrubberyCreationForm form("house");
 
     std::cout << form << std::endl;
     chefe.signForm(form);
@@ -18,7 +18,7 @@ void testShrubbery() {
 }
 
 void testRobotomy() {
-    std::cout << "\n=== TESTE 2: RobotomyRequestForm ===" << std::endl;
+    std::cout << "\n=== TEST 2: RobotomyRequestForm ===" << std::endl;
     Bureaucrat chefe("Chefe", 1);
     RobotomyRequestForm form("Bender");
 
@@ -29,7 +29,7 @@ void testRobotomy() {
 }
 
 void testPresidentialPardon() {
-    std::cout << "\n=== TESTE 3: PresidentialPardonForm ===" << std::endl;
+    std::cout << "\n=== TEST 3: PresidentialPardonForm ===" << std::endl;
     Bureaucrat chefe("Chefe", 1);
     PresidentialPardonForm form("Arthur Dent");
 
@@ -39,15 +39,15 @@ void testPresidentialPardon() {
 }
 
 void testExecuteWithoutSigning() {
-    std::cout << "\n=== TESTE 4: Executar sem assinar ===" << std::endl;
+    std::cout << "\n=== TEST 4: Execute without signing ===" << std::endl;
     Bureaucrat chefe("Chefe", 1);
-    ShrubberyCreationForm form("jardim");
+    ShrubberyCreationForm form("garden");
 
     chefe.executeForm(form);
 }
 
 void testExecuteGradeTooLow() {
-    std::cout << "\n=== TESTE 5: Executar com grade insuficiente ===" << std::endl;
+    std::cout << "\n=== TEST 5: Execute with insufficient grade ===" << std::endl;
     Bureaucrat chefe("Chefe", 1);
     Bureaucrat estagiario("Estagiario", 150);
     PresidentialPardonForm form("Ford Prefect");

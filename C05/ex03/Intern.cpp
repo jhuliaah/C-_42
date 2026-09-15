@@ -52,10 +52,10 @@ AForm *Intern::makeForm(std::string const &formName, std::string const &target)
         if (forms[i].name == formName)
         {
             AForm *form = forms[i].create(target);
-            std::cout << "Intern cria " << form->get_name() << std::endl;
+            std::cout << "Intern creates " << form->get_name() << std::endl;
             return (form);
         }
     }
-    std::cout << "Intern não conseguiu encontrar um formulário chamado " << formName << std::endl;
+    std::cout << "Intern couldn't find a form named " << formName << std::endl;
     return (NULL);
 }

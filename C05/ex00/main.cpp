@@ -3,90 +3,90 @@
 #include <iostream>
 
 void testValidBureaucrat() {
-    std::cout << "\n=== TESTE 1: Burocrata Válido e Operador << ===" << std::endl;
+    std::cout << "\n=== TEST 1: Valid Bureaucrat and << Operator ===" << std::endl;
     try {
         Bureaucrat alex("Alex", 75);
         std::cout << alex << std::endl;
 
-        std::cout << "Incrementando grau..." << std::endl;
+        std::cout << "Incrementing grade..." << std::endl;
         alex.incrementGrade();
         std::cout << alex << std::endl;
 
-        std::cout << "Decrementando grau..." << std::endl;
+        std::cout << "Decrementing grade..." << std::endl;
         alex.decrementGrade();
         std::cout << alex << std::endl;
-    } 
+    }
     catch (const std::exception &e) {
-        std::cout << "Exceção inesperada: " << e.what() << std::endl;
+        std::cout << "Unexpected exception: " << e.what() << std::endl;
     }
 }
 
 void testCopyAndAssignment() {
-    std::cout << "\n=== TESTE 2: Construtor de Cópia e Operador = ===" << std::endl;
+    std::cout << "\n=== TEST 2: Copy Constructor and = Operator ===" << std::endl;
     try {
         Bureaucrat original("Original", 42);
-        Bureaucrat copia(original); // Construtor de Cópia
+        Bureaucrat copia(original); // Copy constructor
         Bureaucrat atribuido("Atribuido", 100);
 
         std::cout << "Original:  " << original << std::endl;
-        std::cout << "Copia:     " << copia << std::endl;
-        std::cout << "Antes de =: " << atribuido << std::endl;
+        std::cout << "Copy:      " << copia << std::endl;
+        std::cout << "Before =: " << atribuido << std::endl;
 
-        atribuido = original; // Operador de Atribuição (=)
-        std::cout << "Depois de =: " << atribuido << " (Note que apenas a grade muda, name e const)" << std::endl;
-    } 
+        atribuido = original; // Assignment operator (=)
+        std::cout << "After =: " << atribuido << " (Note that only the grade changes, name is const)" << std::endl;
+    }
     catch (const std::exception &e) {
-        std::cout << "Exceção inesperada: " << e.what() << std::endl;
+        std::cout << "Unexpected exception: " << e.what() << std::endl;
     }
 }
 
 void testGradeTooHighOnCreation() {
-    std::cout << "\n=== TESTE 3: Criar com Grade Muito Alta (< 1) ===" << std::endl;
+    std::cout << "\n=== TEST 3: Create with Grade Too High (< 1) ===" << std::endl;
     try {
         Bureaucrat boss("Chefe", 0);
-        std::cout << boss << std::endl; // Não deve chegar aqui
-    } 
+        std::cout << boss << std::endl; // Should not reach here
+    }
     catch (const std::exception &e) {
-        std::cout << "Exceção Capturada com sucesso: " << e.what() << std::endl;
+        std::cout << "Exception successfully caught: " << e.what() << std::endl;
     }
 }
 
 void testGradeTooLowOnCreation() {
-    std::cout << "\n=== TESTE 4: Criar com Grade Muito Baixa (> 150) ===" << std::endl;
+    std::cout << "\n=== TEST 4: Create with Grade Too Low (> 150) ===" << std::endl;
     try {
         Bureaucrat estagiario("Estagiario", 151);
-        std::cout << estagiario << std::endl; // Não deve chegar aqui
-    } 
+        std::cout << estagiario << std::endl; // Should not reach here
+    }
     catch (const std::exception &e) {
-        std::cout << "Exceção Capturada com sucesso: " << e.what() << std::endl;
+        std::cout << "Exception successfully caught: " << e.what() << std::endl;
     }
 }
 
 void testOverflowIncrement() {
-    std::cout << "\n=== TESTE 5: Incrementar além do limite (Grade 1 -> 0) ===" << std::endl;
+    std::cout << "\n=== TEST 5: Increment beyond the limit (Grade 1 -> 0) ===" << std::endl;
     try {
         Bureaucrat presidente("Presidente", 1);
         std::cout << presidente << std::endl;
-        
-        std::cout << "Tentando promover o Presidente..." << std::endl;
-        presidente.incrementGrade(); // Deve lançar GradeTooHighException
-    } 
+
+        std::cout << "Trying to promote the President..." << std::endl;
+        presidente.incrementGrade(); // Should throw GradeTooHighException
+    }
     catch (const std::exception &e) {
-        std::cout << "Exceção Capturada com sucesso: " << e.what() << std::endl;
+        std::cout << "Exception successfully caught: " << e.what() << std::endl;
     }
 }
 
 void testUnderflowDecrement() {
-    std::cout << "\n=== TESTE 6: Decrementar além do limite (Grade 150 -> 151) ===" << std::endl;
+    std::cout << "\n=== TEST 6: Decrement beyond the limit (Grade 150 -> 151) ===" << std::endl;
     try {
         Bureaucrat novato("Novato", 150);
         std::cout << novato << std::endl;
-        
-        std::cout << "Tentando rebaixar o Novato..." << std::endl;
-        novato.decrementGrade(); // Deve lançar GradeTooLowException
-    } 
+
+        std::cout << "Trying to demote the Intern..." << std::endl;
+        novato.decrementGrade(); // Should throw GradeTooLowException
+    }
     catch (const std::exception &e) {
-        std::cout << "Exceção Capturada com sucesso: " << e.what() << std::endl;
+        std::cout << "Exception successfully caught: " << e.what() << std::endl;
     }
 }
 
