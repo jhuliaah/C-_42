@@ -1,10 +1,10 @@
 
-NAME	= identify
+NAME	= iter
 CC	= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98
 
-SRC	= main.cpp functions.cpp Base.cpp A.cpp B.cpp C.cpp
-HEADERS = functions.hpp Base.hpp A.hpp B.hpp C.hpp
+SRC	= main.cpp
+HEADERS = iter.hpp
 
 OBJ	= ${SRC:.cpp=.o}
 
