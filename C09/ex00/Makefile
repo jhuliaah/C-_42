@@ -1,10 +1,10 @@
 
-NAME	= convert
+NAME	= btc
 CC	= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98
 
-SRC	= main.cpp ScalarConverser.cpp
-HEADERS = ScalarConverser.hpp
+SRC	= main.cpp btc.cpp
+HEADERS = btc.hpp
 
 OBJ	= ${SRC:.cpp=.o}
 
@@ -25,4 +25,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
-

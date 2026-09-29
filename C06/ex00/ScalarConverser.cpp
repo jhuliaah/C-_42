@@ -11,7 +11,6 @@ ScalarConverter& ScalarConverter::operator=(ScalarConverter const &other) {
 
 ScalarConverter::~ScalarConverter() {}
 
-//==========================
 
 bool ScalarConverter::isPseudo(const std::string& toConvert) {
 	const char* pseudo[6] = {"-inff", "+inff", "nanf", "-inf", "+inf", "nan"};
