@@ -1,10 +1,10 @@
 
-NAME	= btc
+NAME	= RPN
 CC	= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98
 
-SRC	= main.cpp BitcoinExchange.cpp
-HEADERS = BitcoinExchange.hpp
+SRC	= main.cpp RPN.cpp
+HEADERS = RPN.hpp
 
 OBJ	= ${SRC:.cpp=.o}
 

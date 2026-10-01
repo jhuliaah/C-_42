@@ -1,5 +1,5 @@
-#ifndef BTC_HPP
-#define BTC_HPP
+#ifndef BITCOINEXCHANGE_HPP
+#define BITCOINEXCHANGE_HPP
 
 #include <iostream>
 #include <map>
@@ -59,7 +59,7 @@ class BitcoinExchange {
 
     class NotPositiveNumberException : public std::exception {
         public:
-        virtual const char* what() const throw() { return "Not a positive Number.";}
+        virtual const char* what() const throw() { return "not a positive number.";}
     };
 
     class BitcoinDontExistException : public std::exception {
@@ -69,13 +69,12 @@ class BitcoinExchange {
 
     class LargeNumberException : public std::exception {
         public:
-        virtual const char* what() const throw() { return "number too large";} 
+        virtual const char* what() const throw() { return "too large a number.";} 
     };
 
     //functions:
 
     std::map<std::string, double> fileConvert();
-    void printMap();
     
     std::string mapKeyValid(std::string line);
     int validDateValue(std::string line);
